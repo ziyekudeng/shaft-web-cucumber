@@ -23,7 +23,7 @@ public class AssertionSteps {
      * @param expectedValue    the expected value (test data) of this assertion
      */
     // @Then("I Assert that the {string} attribute of the browser, equals {string}")
-    @Then("断言浏览器的{string}属性等于{string}")
+    @Then("判断浏览器的{string}属性等于{string}")
     public void assertBrowserAttributeEquals(String browserAttribute, String expectedValue) {
         driver.get().assertThat().browser()
                 .attribute(browserAttribute)
@@ -41,7 +41,7 @@ public class AssertionSteps {
      * @param expectedValue    the expected value (test data) of this assertion
      */
     // @Then("I Assert that the {string} attribute of the browser, does not equal {string}")
-    @Then("断言浏览器的{string}属性不等于{string}")
+    @Then("判断浏览器的{string}属性不等于{string}")
     public void assertBrowserAttributeDoesNotEqual(String browserAttribute, String expectedValue) {
         driver.get().assertThat().browser()
                 .attribute(browserAttribute)
@@ -59,7 +59,7 @@ public class AssertionSteps {
      * @param expectedValue    the expected value (test data) of this assertion
      */
     // @Then("I Assert that the {string} attribute of the browser, contains {string}")
-    @Then("断言浏览器的{string}属性包含{string}")
+    @Then("判断浏览器的{string}属性包含{string}")
     public void assertBrowserAttributeContains(String browserAttribute, String expectedValue) {
         driver.get().assertThat().browser()
                 .attribute(browserAttribute)
@@ -77,7 +77,7 @@ public class AssertionSteps {
      * @param expectedValue    the expected value (test data) of this assertion
      */
     // @Then("I Assert that the {string} attribute of the browser, does not contain {string}")
-    @Then("断言浏览器的{string}属性不包含{string}")
+    @Then("判断浏览器的{string}属性不包含{string}")
     public void assertBrowserAttributeDoesNotContain(String browserAttribute, String expectedValue) {
         driver.get().assertThat().browser()
                 .attribute(browserAttribute)
@@ -95,7 +95,7 @@ public class AssertionSteps {
      * @param expectedValue    the expected value (test data) of this assertion
      */
     // @Then("I Assert that the {string} attribute of the browser, matches the regular expression {string}")
-    @Then("断言浏览器的{string}属性匹配正则表达式{string}")
+    @Then("判断浏览器的{string}属性匹配正则表达式{string}")
     public void assertBrowserAttributeMatches(String browserAttribute, String expectedValue) {
         driver.get().assertThat().browser()
                 .attribute(browserAttribute)
@@ -113,7 +113,7 @@ public class AssertionSteps {
      * @param expectedValue    the expected value (test data) of this assertion
      */
     // @Then("I Assert that the {string} attribute of the browser, does not match the regular expression {string}")
-    @Then("断言浏览器的{string}属性不匹配正则表达式{string}")
+    @Then("判断浏览器的{string}属性不匹配正则表达式{string}")
     public void assertBrowserAttributeDoesNotMatch(String browserAttribute, String expectedValue) {
         driver.get().assertThat().browser()
                 .attribute(browserAttribute)
@@ -131,7 +131,7 @@ public class AssertionSteps {
      * @param expectedValue    the expected value (test data) of this assertion
      */
     // @Then("I Assert that the {string} attribute of the element found by {string}: {string}, equals {string}")
-    @Then("断言通过{string}: {string}找到的元素的{string}属性等于{string}")
+    @Then("判断通过{string}: {string}找到的元素的{string}属性等于{string}")
 //    @اذاً("أقوم بالتأكد من ان قيمة الصفة {string} الخاصة بعنصر الويب المحدد بإستخدام {string} بقيمة {string}, من المفترض أن تكون {string}")
     public void assertelementDomAttributeEquals(String elementAttribute, String locatorType, String locatorValue, String expectedValue) {
         driver.get().assertThat()
@@ -151,7 +151,7 @@ public class AssertionSteps {
      * @param expectedValue    the expected value (test data) of this assertion
      */
     // @Then("I Assert that the {string} attribute of the element found by {string}: {string}, does not equal {string}")
-    @Then("断言通过{string}: {string}找到的元素的{string}属性不等于{string}")
+    @Then("判断通过{string}: {string}找到的元素的{string}属性不等于{string}")
     public void assertElementAttributeDoesNotEqual(String elementAttribute, String locatorType, String locatorValue, String expectedValue) {
         driver.get().assertThat()
                 .element(ElementSteps.getLocatorFromTypeAndValue(locatorType, locatorValue))
@@ -170,7 +170,7 @@ public class AssertionSteps {
      * @param expectedValue    the expected value (test data) of this assertion
      */
     // @Then("I Assert that the {string} attribute of the element found by {string}: {string}, contains {string}")
-    @Then("断言通过{string}: {string}找到的元素的{string}属性包含{string}")
+    @Then("判断通过{string}: {string}找到的元素的{string}属性包含{string}")
     public void assertElementAttributeContains(String elementAttribute, String locatorType, String locatorValue, String expectedValue) {
         driver.get().assertThat()
                 .element(ElementSteps.getLocatorFromTypeAndValue(locatorType, locatorValue))
@@ -189,7 +189,7 @@ public class AssertionSteps {
      * @param expectedValue    the expected value (test data) of this assertion
      */
     // @Then("I Assert that the {string} attribute of the element found by {string}: {string}, does not contain {string}")
-    @Then("断言通过{string}: {string}找到的元素的{string}属性不包含{string}")
+    @Then("判断通过{string}: {string}找到的元素的{string}属性不包含{string}")
     public void assertElementAttributeDoesNotContain(String elementAttribute, String locatorType, String locatorValue, String expectedValue) {
         driver.get().assertThat()
                 .element(ElementSteps.getLocatorFromTypeAndValue(locatorType, locatorValue))
@@ -208,7 +208,7 @@ public class AssertionSteps {
      * @param expectedValue    the expected value (test data) of this assertion
      */
     // @Then("I Assert that the {string} attribute of the element found by {string}: {string}, matches the regular expression {string}")
-    @Then("断言通过{string}: {string}找到的元素的{string}属性匹配正则表达式{string}")
+    @Then("判断通过{string}: {string}找到的元素的{string}属性匹配正则表达式{string}")
     public void assertElementAttributeMatches(String elementAttribute, String locatorType, String locatorValue, String expectedValue) {
         driver.get().assertThat()
                 .element(ElementSteps.getLocatorFromTypeAndValue(locatorType, locatorValue))
@@ -227,7 +227,7 @@ public class AssertionSteps {
      * @param expectedValue    the expected value (test data) of this assertion
      */
     // @Then("I Assert that the {string} attribute of the element found by {string}: {string}, does not match the regular expression {string}")
-    @Then("断言通过{string}: {string}找到的元素的{string}属性不匹配正则表达式{string}")
+    @Then("判断通过{string}: {string}找到的元素的{string}属性不匹配正则表达式{string}")
     public void assertElementAttributeDoesNotMatch(String elementAttribute, String locatorType, String locatorValue, String expectedValue) {
         driver.get().assertThat()
                 .element(ElementSteps.getLocatorFromTypeAndValue(locatorType, locatorValue))
@@ -245,7 +245,7 @@ public class AssertionSteps {
      * @param locatorValue the value/expression of the desired element locator
      */
     // @Then("I Assert that the element found by {string}: {string}, does exist")
-    @Then("断言通过{string}: {string}找到的元素确实存在")
+    @Then("判断通过{string}: {string}找到的元素确实存在")
     public void assertElementExists(String locatorType, String locatorValue) {
         driver.get().assertThat()
                 .element(ElementSteps.getLocatorFromTypeAndValue(locatorType, locatorValue))
@@ -262,7 +262,7 @@ public class AssertionSteps {
      * @param locatorValue the value/expression of the desired element locator
      */
     // @Then("I Assert that the element found by {string}: {string}, does not exist")
-    @Then("断言通过{string}: {string}找到的元素不存在")
+    @Then("判断通过{string}: {string}找到的元素不存在")
     public void assertElementDoesNotExist(String locatorType, String locatorValue) {
         driver.get().assertThat()
                 .element(ElementSteps.getLocatorFromTypeAndValue(locatorType, locatorValue))
@@ -280,7 +280,7 @@ public class AssertionSteps {
      * @param expectedValue      the expected value (test data) of this assertion
      */
     // @Then("I Assert that the {string} CSS property of the element found by {string}: {string}, equals {string}")
-    @Then("断言通过{string}: {string}找到的元素的{string} CSS属性等于{string}")
+    @Then("判断通过{string}: {string}找到的元素的{string} CSS属性等于{string}")
     public void assertElementCSSPropertyEquals(String elementCSSProperty, String locatorType, String locatorValue, String expectedValue) {
         driver.get().assertThat()
                 .element(ElementSteps.getLocatorFromTypeAndValue(locatorType, locatorValue))
@@ -299,7 +299,7 @@ public class AssertionSteps {
      * @param expectedValue      the expected value (test data) of this assertion
      */
     // @Then("I Assert that the {string} CSS property of the element found by {string}: {string}, does not equal {string}")
-    @Then("断言通过{string}: {string}找到的元素的{string} CSS属性不等于{string}")
+    @Then("判断通过{string}: {string}找到的元素的{string} CSS属性不等于{string}")
     public void assertElementCSSPropertyDoesNotEqual(String elementCSSProperty, String locatorType, String locatorValue, String expectedValue) {
         driver.get().assertThat()
                 .element(ElementSteps.getLocatorFromTypeAndValue(locatorType, locatorValue))
@@ -318,7 +318,7 @@ public class AssertionSteps {
      * @param expectedValue      the expected value (test data) of this assertion
      */
     // @Then("I Assert that the {string} CSS property of the element found by {string}: {string}, contains {string}")
-    @Then("断言通过{string}: {string}找到的元素的{string} CSS属性包含{string}")
+    @Then("判断通过{string}: {string}找到的元素的{string} CSS属性包含{string}")
     public void assertElementCSSPropertyContains(String elementCSSProperty, String locatorType, String locatorValue, String expectedValue) {
         driver.get().assertThat()
                 .element(ElementSteps.getLocatorFromTypeAndValue(locatorType, locatorValue))
@@ -337,7 +337,7 @@ public class AssertionSteps {
      * @param expectedValue      the expected value (test data) of this assertion
      */
     // @Then("I Assert that the {string} CSS property of the element found by {string}: {string}, does not contain {string}")
-    @Then("断言通过{string}: {string}找到的元素的{string} CSS属性不包含{string}")
+    @Then("判断通过{string}: {string}找到的元素的{string} CSS属性不包含{string}")
     public void assertElementCSSPropertyDoesNotContain(String elementCSSProperty, String locatorType, String locatorValue, String expectedValue) {
         driver.get().assertThat()
                 .element(ElementSteps.getLocatorFromTypeAndValue(locatorType, locatorValue))
@@ -356,7 +356,7 @@ public class AssertionSteps {
      * @param expectedValue      the expected value (test data) of this assertion
      */
     // @Then("I Assert that the {string} CSS property of the element found by {string}: {string}, matches the regular expression {string}")
-    @Then("断言通过{string}: {string}找到的元素的{string} CSS属性匹配正则表达式{string}")
+    @Then("判断通过{string}: {string}找到的元素的{string} CSS属性匹配正则表达式{string}")
     public void assertElementCSSPropertyMatches(String elementCSSProperty, String locatorType, String locatorValue, String expectedValue) {
         driver.get().assertThat()
                 .element(ElementSteps.getLocatorFromTypeAndValue(locatorType, locatorValue))
@@ -375,7 +375,7 @@ public class AssertionSteps {
      * @param expectedValue      the expected value (test data) of this assertion
      */
     // @Then("I Assert that the {string} CSS property of the element found by {string}: {string}, does not match the regular expression {string}")
-    @Then("断言通过{string}: {string}找到的元素的{string} CSS属性不匹配正则表达式{string}")
+    @Then("判断通过{string}: {string}找到的元素的{string} CSS属性不匹配正则表达式{string}")
     public void assertElementCSSPropertyDoesNotMatch(String elementCSSProperty, String locatorType, String locatorValue, String expectedValue) {
         driver.get().assertThat()
                 .element(ElementSteps.getLocatorFromTypeAndValue(locatorType, locatorValue))
@@ -393,7 +393,7 @@ public class AssertionSteps {
      * @param locatorValue the value/expression of the desired element locator
      */
     // @Then("I Assert that the element found by {string}: {string}, exactly matches with the expected reference image using AI (OpenCV)")
-    @Then("断言通过{string}: {string}找到的元素与使用AI (OpenCV)的预期参考图像完全匹配")
+    @Then("判断通过{string}: {string}找到的元素与使用AI (OpenCV)的预期参考图像完全匹配")
     public void assertElementMatchesOpenCV(String locatorType, String locatorValue) {
         driver.get().assertThat()
                 .element(ElementSteps.getLocatorFromTypeAndValue(locatorType, locatorValue))
@@ -410,7 +410,7 @@ public class AssertionSteps {
      * @param locatorValue the value/expression of the desired element locator
      */
     // @Then("I Assert that the element found by {string}: {string}, does not exactly match with the expected reference image using AI (OpenCV)")
-    @Then("断言通过{string}: {string}找到的元素与使用AI (OpenCV)的预期参考图像不完全匹配")
+    @Then("判断通过{string}: {string}找到的元素与使用AI (OpenCV)的预期参考图像不完全匹配")
     public void assertElementDoesNotMatchOpenCV(String locatorType, String locatorValue) {
         driver.get().assertThat()
                 .element(ElementSteps.getLocatorFromTypeAndValue(locatorType, locatorValue))
@@ -427,7 +427,7 @@ public class AssertionSteps {
      * @param locatorValue the value/expression of the desired element locator
      */
     // @Then("I Assert that the element found by {string}: {string}, exactly matches with the expected reference image using AI (Applitools Eyes)")
-    @Then("断言通过{string}: {string}找到的元素与使用AI (Applitools Eyes)的预期参考图像完全匹配")
+    @Then("判断通过{string}: {string}找到的元素与使用AI (Applitools Eyes)的预期参考图像完全匹配")
     public void assertElementMatchesExactEyes(String locatorType, String locatorValue) {
         driver.get().assertThat()
                 .element(ElementSteps.getLocatorFromTypeAndValue(locatorType, locatorValue))
@@ -444,7 +444,7 @@ public class AssertionSteps {
      * @param locatorValue the value/expression of the desired element locator
      */
     // @Then("I Assert that the element found by {string}: {string}, does not exactly match with the expected reference image using AI (Applitools Eyes)")
-    @Then("断言通过{string}: {string}找到的元素与使用AI (Applitools Eyes)的预期参考图像不完全匹配")
+    @Then("判断通过{string}: {string}找到的元素与使用AI (Applitools Eyes)的预期参考图像不完全匹配")
     public void assertElementDoesNotMatchExactEyes(String locatorType, String locatorValue) {
         driver.get().assertThat()
                 .element(ElementSteps.getLocatorFromTypeAndValue(locatorType, locatorValue))
@@ -461,7 +461,7 @@ public class AssertionSteps {
      * @param locatorValue the value/expression of the desired element locator
      */
     // @Then("I Assert that the element found by {string}: {string}, strictly matches with the expected reference image using AI (Applitools Eyes)")
-    @Then("断言通过{string}: {string}找到的元素与使用AI (Applitools Eyes)的预期参考图像严格匹配")
+    @Then("判断通过{string}: {string}找到的元素与使用AI (Applitools Eyes)的预期参考图像严格匹配")
     public void assertElementMatchesStrictEyes(String locatorType, String locatorValue) {
         driver.get().assertThat()
                 .element(ElementSteps.getLocatorFromTypeAndValue(locatorType, locatorValue))
@@ -478,7 +478,7 @@ public class AssertionSteps {
      * @param locatorValue the value/expression of the desired element locator
      */
     // @Then("I Assert that the element found by {string}: {string}, does not strictly match with the expected reference image using AI (Applitools Eyes)")
-    @Then("断言通过{string}: {string}找到的元素与使用AI (Applitools Eyes)的预期参考图像不严格匹配")
+    @Then("判断通过{string}: {string}找到的元素与使用AI (Applitools Eyes)的预期参考图像不严格匹配")
     public void assertElementDoesNotMatchStrictEyes(String locatorType, String locatorValue) {
         driver.get().assertThat()
                 .element(ElementSteps.getLocatorFromTypeAndValue(locatorType, locatorValue))
@@ -495,7 +495,7 @@ public class AssertionSteps {
      * @param locatorValue the value/expression of the desired element locator
      */
     // @Then("I Assert that the element found by {string}: {string}, matches the content of the expected reference image using AI (Applitools Eyes)")
-    @Then("断言通过{string}: {string}找到的元素与使用AI (Applitools Eyes)的预期参考图像内容匹配")
+    @Then("判断通过{string}: {string}找到的元素与使用AI (Applitools Eyes)的预期参考图像内容匹配")
     public void assertElementMatchesContentEyes(String locatorType, String locatorValue) {
         driver.get().assertThat()
                 .element(ElementSteps.getLocatorFromTypeAndValue(locatorType, locatorValue))
@@ -512,7 +512,7 @@ public class AssertionSteps {
      * @param locatorValue the value/expression of the desired element locator
      */
     // @Then("I Assert that the element found by {string}: {string}, does not match the content of the expected reference image using AI (Applitools Eyes)")
-    @Then("断言通过{string}: {string}找到的元素与使用AI (Applitools Eyes)的预期参考图像内容不匹配")
+    @Then("判断通过{string}: {string}找到的元素与使用AI (Applitools Eyes)的预期参考图像内容不匹配")
     public void assertElementDoesNotMatchContentEyes(String locatorType, String locatorValue) {
         driver.get().assertThat()
                 .element(ElementSteps.getLocatorFromTypeAndValue(locatorType, locatorValue))
@@ -529,7 +529,7 @@ public class AssertionSteps {
      * @param locatorValue the value/expression of the desired element locator
      */
     // @Then("I Assert that the element found by {string}: {string}, matches the layout of the expected reference image using AI (Applitools Eyes)")
-    @Then("断言通过{string}: {string}找到的元素与使用AI (Applitools Eyes)的预期参考图像布局匹配")
+    @Then("判断通过{string}: {string}找到的元素与使用AI (Applitools Eyes)的预期参考图像布局匹配")
     public void assertElementMatchesLayoutEyes(String locatorType, String locatorValue) {
         driver.get().assertThat()
                 .element(ElementSteps.getLocatorFromTypeAndValue(locatorType, locatorValue))
@@ -546,7 +546,7 @@ public class AssertionSteps {
      * @param locatorValue the value/expression of the desired element locator
      */
     // @Then("I Assert that the element found by {string}: {string}, does not match the layout of the expected reference image using AI (Applitools Eyes)")
-    @Then("断言通过{string}: {string}找到的元素与使用AI (Applitools Eyes)的预期参考图像布局不匹配")
+    @Then("判断通过{string}: {string}找到的元素与使用AI (Applitools Eyes)的预期参考图像布局不匹配")
     public void assertElementDoesNotMatchLayoutEyes(String locatorType, String locatorValue) {
         driver.get().assertThat()
                 .element(ElementSteps.getLocatorFromTypeAndValue(locatorType, locatorValue))

@@ -34,6 +34,7 @@
             <artifactId>surefire-testng</artifactId>
             <version>${surefire-testng.version}</version>
         </dependency>
+
     </dependencies>
     <build>
         <plugins>
