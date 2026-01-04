@@ -55,7 +55,7 @@ public class ElementSteps {
      */
     @SuppressWarnings("SpellCheckingInspection")
     // @When("I Type {string} into the element found by {string}: {string}")
-    @When("输入{string}到通过{string}: {string}找到的元素中")
+    @When("输入{string}到通过元素属性{string}: 属性值{string}找到的元素中")
 //    @عندما("اقوم بكتابة {string} بداخل مربع الكتابة المحدد بإستخدام {string} بقيمة {string}")
     public void type(String text, String locatorType, String locatorValue) {
         driver.get().element().type(getLocatorFromTypeAndValue(locatorType, locatorValue), text);
@@ -69,7 +69,7 @@ public class ElementSteps {
      * @param locatorValue the value/expression of the desired element locator
      */
     // @When("I Press {string} into the element found by {string}: {string}")
-    @When("按下{string}到通过{string}: {string}找到的元素中")
+    @When("按下{string}到通过元素属性{string}: 属性值{string}找到的元素中")
 //    @عندما("اقوم بكتابة {string} بداخل مربع الكتابة المحدد بإستخدام {string} بقيمة {string}")
     public void keyPress(String key, String locatorType, String locatorValue) {
         driver.get().element().type(getLocatorFromTypeAndValue(locatorType, locatorValue), Keys.valueOf(key.toUpperCase()));
@@ -84,7 +84,7 @@ public class ElementSteps {
      * @param locatorValue the value/expression of the desired element locator
      */
     // @When("I Type {string} securely into the element found by {string}: {string}")
-    @When("安全输入{string}到通过{string}: {string}找到的元素中")
+    @When("安全输入{string}到通过元素属性{string}: 属性值{string}找到的元素中")
     public void typeSecure(String text, String locatorType, String locatorValue) {
         driver.get().element().typeSecure(getLocatorFromTypeAndValue(locatorType, locatorValue), text);
     }
@@ -98,7 +98,7 @@ public class ElementSteps {
      * @param locatorValue the value/expression of the desired element locator
      */
     // @When("I Append the text {string} to the element found by {string}: {string}")
-    @When("追加文本{string}到通过{string}: {string}找到的元素中")
+    @When("追加文本{string}到通过元素属性{string}: 属性值{string}找到的元素中")
     public void typeAppend(String text, String locatorType, String locatorValue) {
         driver.get().element().typeAppend(getLocatorFromTypeAndValue(locatorType, locatorValue), text);
     }
@@ -112,7 +112,7 @@ public class ElementSteps {
      * @param locatorValue     the value/expression of the desired element locator
      */
     // @When("I Upload the file {string} to the element found by {string}: {string}")
-    @When("上传文件{string}到通过{string}: {string}找到的元素中")
+    @When("上传文件{string}到通过元素属性{string}: 属性值{string}找到的元素中")
     public void typeFileLocationForUpload(String absoluteFilePath, String locatorType, String locatorValue) {
         driver.get().element().typeFileLocationForUpload(getLocatorFromTypeAndValue(locatorType, locatorValue), absoluteFilePath);
     }
@@ -124,7 +124,7 @@ public class ElementSteps {
      * @param locatorValue the value/expression of the desired element locator
      */
     // @When("I Click the element found by {string}: {string}")
-    @When("点击通过{string}: {string}找到的元素")
+    @When("点击通过元素属性{string}: 属性值{string}找到的元素")
     public void click(String locatorType, String locatorValue) {
         driver.get().element().click(getLocatorFromTypeAndValue(locatorType, locatorValue));
     }
@@ -136,7 +136,7 @@ public class ElementSteps {
      * @param locatorValue the value/expression of the desired element locator
      */
     // @When("I Click and hold the element found by {string}: {string}")
-    @When("点击并按住通过{string}: {string}找到的元素")
+    @When("点击并按住通过元素属性{string}: 属性值{string}找到的元素")
     public void clickAndHold(String locatorType, String locatorValue) {
         driver.get().element().clickAndHold(getLocatorFromTypeAndValue(locatorType, locatorValue));
     }
@@ -151,7 +151,7 @@ public class ElementSteps {
      * @param locatorValue the value/expression of the desired element locator
      */
     // @When("I use the clipboard to perform {string} on the element found by {string}: {string}")
-    @When("使用剪贴板在通过{string}: {string}找到的元素上执行{string}")
+    @When("使用剪贴板在通过元素属性{string}: 属性值{string}找到的元素上执行{string}")
     public void clipboardActions(String action, String locatorType, String locatorValue) {
         driver.get().element().clipboardActions(getLocatorFromTypeAndValue(locatorType, locatorValue), ClipboardAction.valueOf(action));
     }
@@ -163,7 +163,7 @@ public class ElementSteps {
      * @param locatorValue the value/expression of the desired element locator
      */
     // @When("I Double-click the element found by {string}: {string}")
-    @When("双击通过{string}: {string}找到的元素")
+    @When("双击通过元素属性{string}: 属性值{string}找到的元素")
     public void doubleClick(String locatorType, String locatorValue) {
         driver.get().element().doubleClick(getLocatorFromTypeAndValue(locatorType, locatorValue));
     }
@@ -193,7 +193,7 @@ public class ElementSteps {
      *                     be moved
      */
     // @When("I Drag the element found by {string}: {string} and drop it by offset x={int} and y={int}")
-    @When("拖动通过{string}: {string}找到的元素并将其拖放到偏移量x={int}和y={int}")
+    @When("拖动通过元素属性{string}: 属性值{string}找到的元素并将其拖放到偏移量x={int}和y={int}")
     public void dragAndDropByOffset(String locatorType, String locatorValue, int xOffset, int yOffset) {
         driver.get().element().dragAndDropByOffset(getLocatorFromTypeAndValue(locatorType, locatorValue), xOffset, yOffset);
     }
@@ -205,7 +205,7 @@ public class ElementSteps {
      * @param locatorValue the value/expression of the desired element locator
      */
     // @When("I Hover over the element found by {string}: {string}")
-    @When("悬停在通过{string}: {string}找到的元素上")
+    @When("悬停在通过元素属性{string}: 属性值{string}找到的元素上")
     public void hover(String locatorType, String locatorValue) {
         driver.get().element().hover(getLocatorFromTypeAndValue(locatorType, locatorValue));
     }
@@ -218,7 +218,7 @@ public class ElementSteps {
      * @param locatorValue the value/expression of the desired element locator
      */
     // @When("I Select {string} from the drop-down list element found by {string}: {string}")
-    @When("从下拉列表中选择{string}，元素通过{string}: {string}找到")
+    @When("从下拉列表中选择{string}，元素通过元素属性{string}: 属性值{string}找到")
     public void select(String text, String locatorType, String locatorValue) {
         driver.get().element().select(getLocatorFromTypeAndValue(locatorType, locatorValue), text);
     }
@@ -231,7 +231,7 @@ public class ElementSteps {
      * @param locatorValue the value/expression of the desired element locator
      */
     // @When("I Set the value {string} into the element found by {string}: {string}")
-    @When("设置值{string}到通过{string}: {string}找到的元素中")
+    @When("设置值{string}到通过元素属性{string}: 属性值{string}找到的元素中")
     public void setValueUsingJavaScript(String value, String locatorType, String locatorValue) {
         driver.get().element().setValueUsingJavaScript(getLocatorFromTypeAndValue(locatorType, locatorValue), value);
     }
@@ -243,7 +243,7 @@ public class ElementSteps {
      * @param locatorValue the value/expression of the desired element locator
      */
     // @When("I Submit the form found by {string}: {string}")
-    @When("提交通过{string}: {string}找到的表单")
+    @When("提交通过元素属性{string}: 属性值{string}找到的表单")
     public void submitFormUsingJavaScript(String locatorType, String locatorValue) {
         driver.get().element().submitFormUsingJavaScript(getLocatorFromTypeAndValue(locatorType, locatorValue));
     }
