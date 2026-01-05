@@ -13,10 +13,10 @@ Feature: CSS系统登录
 
   @SampleTests
   Scenario: CSS系统 创建预约单
-    When 点击通过"xpath": "//button[contains(text(), '送样申请')]"找到的元素
+    When 点击通过"xpath": "//button[contains(text(), 'Send Samples')]"找到的元素
     Then 点击通过"xpath": "//button[.//img[contains(@src, 'operation') and @alt='operation']]"找到的元素
-    Then 点击通过"xpath": "//button[contains(text(), '预约取样')]"找到的元素
-    Then 点击通过"xpath": "//button[contains(text(), '添加批次单')]"找到的元素
+    Then 点击通过"xpath": "//button[contains(text(), 'Sampling Appointment')]"找到的元素
+    Then 点击通过"xpath": "//button[contains(text(), 'Add Batch Order')]"找到的元素
     When 输入"Z251230003"到通过"xpath": "//div[@class='project-search' and @id='area']//input[@type='text']"找到的元素中
     Then 按下"Enter"到通过"xpath": "//input[@value='Z251230003']"找到的元素中
     Then 点击通过"xpath": "//tr[.//span[normalize-space(text())='Z251230003']]//span[@class='ant-checkbox']"找到的元素
