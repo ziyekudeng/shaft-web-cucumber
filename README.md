@@ -47,12 +47,50 @@
 
 ## SHAFT_ENGINE custom.properties 配置参数清单
 
-### 1. Cucumber相关配置
+### 1. Web GUI 配置
+- `baseURL` - 配置基础 URL，以便脚本可以在不同环境下运行
+- `targetBrowserName` - 设置目标浏览器，支持 CHROME, FIREFOX, SAFARI, MICROSOFTEDGE
+- `headlessExecution` - 设置是否在无头模式下运行测试（true/false）
+- `createAnimatedGif` - 设置是否在 Allure 报告中生成动画 GIF（true/false）
+- `videoParams_recordVideo` - 设置是否在 Allure 报告中录制视频（true/false）
+- `forceCheckForElementVisibility` - 设置是否强制检查元素可见性（true/false）
+- `forceCheckElementLocatorIsUnique` - 设置是否强制检查元素定位器唯一性（true/false）
+- `forceCheckTextWasTypedCorrectly` - 设置是否强制检查文本输入正确性（true/false）
+- `forceCheckNavigationWasSuccessful` - 设置是否强制检查导航成功（true/false）
+- `respectBuiltInWaitsInNativeMode` - 设置本地模式下是否遵循内置等待（true/false）
+- `clickUsingJavascriptWhenWebDriverClickFails` - 当 WebDriver 点击失败时，是否使用 JavaScript 点击元素（true/false）
+- `defaultElementIdentificationTimeout` - 默认元素识别超时时间（秒）
+- `browserNavigationTimeout` - 浏览器导航超时时间（秒）
+- `pageLoadTimeout` - 页面加载超时时间（秒）
+
+### 2. 移动 GUI 配置
+- `executionAddress` - Appium 服务器地址，例如 localhost:4723
+- `targetOperatingSystem` - 目标操作系统，支持 ANDROID 或 IOS
+- `mobile_automationName` - Appium 自动化名称，例如 UiAutomator2（Android）或 XCUITest（iOS）
+- `mobile_app` - APK 或 IPA 文件的相对路径，用于全新安装应用
+- `mobile_appPackage` - 已安装应用的包名（不推荐使用）
+- `mobile_appActivity` - 已安装应用的 Activity 名（不推荐使用）
+
+### 3. API 配置
+- `com.SHAFT.proxySettings` - 配置代理设置，例如 host:port
+- `retryMaximumNumberOfAttempts` - 配置 SHAFT 自动重试失败 API 请求的最大次数
+- `automaticallyAssertResponseStatusCode` - 设置是否自动断言响应状态码（true/false）
+- `apiSocketTimeout` - API Socket 超时时间（秒）
+- `apiConnectionTimeout` - API 连接超时时间（秒）
+- `apiConnectionManagerTimeout` - API 连接管理器超时时间（秒）
+- `swagger.validation.enabled` - 启用 Swagger/OpenAPI 契约验证（true/false）
+- `swagger.validation.url` - Swagger/OpenAPI 规范文件的路径或 URL
+
+### 4. 并行执行配置
+- `SHAFT.CrossBrowserMode` - 启用跨浏览器模式，支持 off(默认), sequential, parallelized
+- `maximumPerformanceMode` - 启用最大性能模式，例如 2
+
+### 5. Cucumber相关配置
 - `cucumber.messages.locale` - 设置Cucumber消息的语言（如zh-CN表示中文）
 - `cucumber.glue` - 指定步骤定义包路径，多个包用逗号分隔
 - `cucumber.plugin` - 配置Cucumber报告插件
 
-### 2. Allure报告相关配置
+### 6. Allure报告相关配置
 - `shaft.cucumber.disableAllureDownload` - 是否禁用Allure自动下载（true/false）
 - `allure.results.directory` - Allure结果输出目录
 - `allure.commandline.download.url` - Allure命令行工具下载地址
@@ -69,26 +107,21 @@
 - `allure.attach.testscreenshot.gif` - 是否生成GIF截图
 - `allure.download.checksums.enabled` - 是否启用下载校验
 
-### 3. ReportPortal集成配置
+### 7. ReportPortal集成配置
 - `rp.enable` - 启用/禁用ReportPortal集成（true/false）
 - `rp.endpoint` - ReportPortal服务器端点URL
 - `rp.api.key` - ReportPortal API密钥
 - `rp.project` - ReportPortal项目名称
 - `rp.launch` - ReportPortal启动名称
 
-### 4. 系统环境配置
+### 8. 系统环境配置
 - `file.encoding` - 文件编码（如UTF-8）
 - `sun.jnu.encoding` - Java本地编码（如UTF-8）
 
-### 5. WebDriver能力配置（在customWebdriverCapabilities.properties中）
-- `capabilities.accessKey` - 访问密钥（用于云平台）
-- `capabilities.appiumVersion` - Appium版本
-- `capabilities.deviceQuery` - 设备查询参数
-
-### 6. 测试执行相关配置
+### 9. 测试执行相关配置
 - `telemetry.enabled` - 是否启用遥测数据收集（true/false）
 
-### 7. 其他可能的配置参数
+### 10. 其他可能的配置参数
 - `shaft.browser.type` - 指定浏览器类型（如chrome, firefox等）
 - `shaft.browser.headless` - 是否以无头模式运行浏览器
 - `shaft.browser.width` - 浏览器窗口宽度
