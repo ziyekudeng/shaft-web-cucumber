@@ -111,15 +111,6 @@
                             <!-- 启用系统属性配置 -->
                             <systemPropertyVariables>
                                 <jacoco-agent.destfile>target/jacoco.exec</jacoco-agent.destfile>
-                                <!-- Cucumber配置（与cucumber.properties保持一致） -->
-                                <cucumber.glue>customCucumberSteps, com.shaft.cucumber</cucumber.glue>
-                                <cucumber.features>src/test/resources</cucumber.features>
-                                <cucumber.plugin>
-                                    pretty,
-                                    json:target/allure-results/cucumber.json,
-                                    com.shaft.listeners.CucumberTestRunnerListener,
-                                    io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm
-                                </cucumber.plugin>
                             </systemPropertyVariables>
                             <testFailureIgnore>false</testFailureIgnore>
                             <failIfNoSpecifiedTests>false</failIfNoSpecifiedTests>

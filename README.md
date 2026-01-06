@@ -91,7 +91,6 @@
 ### 6. Cucumber相关配置（当前项目配置）
 - `cucumber.glue` - 步骤定义包路径，当前设置为 `customCucumberSteps, com.shaft.cucumber`（与pom.xml和cucumber.properties保持一致）
 - `cucumber.features` - 特性文件路径，当前设置为 `src/test/resources`（Cucumber配置，与pom.xml保持一致）
-- `cucumber.plugin` - Cucumber报告插件，当前包含 `pretty, json:target/allure-results/cucumber.json, html:target/allure-results/cucumberReport.html, com.shaft.listeners.CucumberTestRunnerListener, io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm`
 
 ### 7. 系统环境配置
 - 项目使用UTF-8编码（在pom.xml和properties文件中统一配置）
