@@ -8,25 +8,46 @@
     <version>1.0.0</version>
 
     <properties>
-        <!-- SHAFT_ENGINE 版本 -->
+        <!-- SHAFT_ENGINE最新稳定版（与Cucumber 7.x兼容） -->
         <shaft_engine.version>9.4.20251220</shaft_engine.version>
+        <!-- Cucumber版本与SHAFT_ENGINE 9.4.x兼容（官方推荐7.14.0+） -->
+        <cucumber.version>7.14.0</cucumber.version>
         <jdk.version>21</jdk.version>
+        <aspectjweaver.version>1.9.24</aspectjweaver.version>
         <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
         <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
+        <maven-surefire-plugin.version>3.5.4</maven-surefire-plugin.version>
+        <surefireArgLine></surefireArgLine>
     </properties>
 
     <dependencies>
-        <!-- SHAFT_ENGINE 核心依赖 -->
+        <!-- SHAFT_ENGINE核心依赖（包含Selenium、TestNG等集成） -->
         <dependency>
             <groupId>io.github.shafthq</groupId>
             <artifactId>SHAFT_ENGINE</artifactId>
             <version>${shaft_engine.version}</version>
         </dependency>
+
+        <!-- Cucumber核心依赖（与SHAFT_ENGINE集成必需） -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- AspectJ Weaver（SHAFT_ENGINE切面编程依赖） -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectjweaver.version}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
         <plugins>
-            <!-- 编译插件 -->
+            <!-- 编译插件配置（指定JDK版本、编码） -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -41,7 +62,7 @@
                 </configuration>
             </plugin>
 
-            <!-- 资源插件 -->
+            <!-- 资源插件配置（仅保留编码配置，删除冗余输出目录） -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
@@ -52,4 +73,60 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>cucumber-test</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <!-- Surefire插件（适配Cucumber+SHAFT_ENGINE运行） -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>${maven-surefire-plugin.version}</version>
+                        <dependencies>
+                            <dependency>
+                                <groupId>org.aspectj</groupId>
+                                <artifactId>aspectjweaver</artifactId>
+                                <version>${aspectjweaver.version}</version>
+                            </dependency>
+                        </dependencies>
+                        <configuration>
+                            <encoding>UTF-8</encoding>
+                            <useManifestOnlyJar>true</useManifestOnlyJar>
+                            <!-- 系统属性配置（Cucumber核心参数） -->
+                            <systemPropertyVariables>
+                                <jacoco-agent.destfile>target/jacoco.exec</jacoco-agent.destfile>
+                                <!-- Cucumber配置（与cucumber.properties保持一致） -->
+                                <cucumber.glue>customCucumberSteps, com.shaft.cucumber</cucumber.glue>
+                                <cucumber.features>src/test/resources</cucumber.features>
+                                <cucumber.plugin>
+                                    pretty,
+                                    json:target/allure-results/cucumber.json,
+                                    html:target/allure-results/cucumberReport.html,
+                                    com.shaft.listeners.CucumberTestRunnerListener,
+                                    io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm
+                                </cucumber.plugin>
+                            </systemPropertyVariables>
+                            <testFailureIgnore>false</testFailureIgnore> <!-- 测试失败时终止执行（严谨性） -->
+                            <failIfNoSpecifiedTests>false</failIfNoSpecifiedTests>
+                            <failIfNoTests>false</failIfNoTests> <!-- 无测试用例时不执行失败 -->
+                            <trimStackTrace>false</trimStackTrace>
+                            <useFile>true</useFile> <!-- 生成Surefire执行日志 -->
+                            <!-- AspectJ代理配置（SHAFT_ENGINE必需） -->
+                            <argLine>
+                                ${surefireArgLine}
+                                -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectjweaver.version}/aspectjweaver-${aspectjweaver.version}.jar"
+                            </argLine>
+                            <!-- 指定Cucumber TestNG运行器 -->
+
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
