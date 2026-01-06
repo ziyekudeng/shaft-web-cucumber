@@ -17,6 +17,9 @@
         <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
         <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
         <maven-surefire-plugin.version>3.5.4</maven-surefire-plugin.version>
+        <!-- 添加Allure相关版本 -->
+        <allure.version>2.24.0</allure.version>
+        <allure-cucumber7-jvm.version>2.24.0</allure-cucumber7-jvm.version>
         <surefireArgLine></surefireArgLine>
     </properties>
 
@@ -36,11 +39,12 @@
             <scope>compile</scope>
         </dependency>
 
-        <!-- Allure与Cucumber适配依赖 -->
+        <!-- Allure Cucumber 7 集成依赖 -->
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-cucumber7-jvm</artifactId>
-            <version>2.24.0</version>
+            <version>${allure-cucumber7-jvm.version}</version>
+            <scope>test</scope>
         </dependency>
 
         <!-- AspectJ Weaver（SHAFT_ENGINE切面编程依赖） -->
@@ -104,7 +108,7 @@
                         <configuration>
                             <encoding>UTF-8</encoding>
                             <useManifestOnlyJar>true</useManifestOnlyJar>
-                            <!-- 系统属性配置（Cucumber核心参数） -->
+                            <!-- 启用系统属性配置 -->
                             <systemPropertyVariables>
                                 <jacoco-agent.destfile>target/jacoco.exec</jacoco-agent.destfile>
                                 <!-- Cucumber配置（与cucumber.properties保持一致） -->
@@ -113,24 +117,41 @@
                                 <cucumber.plugin>
                                     pretty,
                                     json:target/allure-results/cucumber.json,
-                                    html:target/allure-results/cucumberReport.html,
                                     com.shaft.listeners.CucumberTestRunnerListener,
                                     io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm
                                 </cucumber.plugin>
                             </systemPropertyVariables>
-                            <testFailureIgnore>false</testFailureIgnore> <!-- 测试失败时终止执行（严谨性） -->
+                            <testFailureIgnore>false</testFailureIgnore>
                             <failIfNoSpecifiedTests>false</failIfNoSpecifiedTests>
-                            <failIfNoTests>false</failIfNoTests> <!-- 无测试用例时不执行失败 -->
+                            <failIfNoTests>false</failIfNoTests>
                             <trimStackTrace>false</trimStackTrace>
-                            <useFile>true</useFile> <!-- 生成Surefire执行日志 -->
+                            <useFile>true</useFile>
                             <!-- AspectJ代理配置（SHAFT_ENGINE必需） -->
                             <argLine>
                                 ${surefireArgLine}
                                 -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectjweaver.version}/aspectjweaver-${aspectjweaver.version}.jar"
                             </argLine>
-                            <!-- 指定Cucumber TestNG运行器 -->
-
                         </configuration>
+                    </plugin>
+
+                    <!-- 添加Allure报告生成插件 -->
+                    <plugin>
+                        <groupId>io.qameta.allure</groupId>
+                        <artifactId>allure-maven</artifactId>
+                        <version>2.12.0</version>
+                        <configuration>
+                            <reportVersion>${allure.version}</reportVersion>
+                            <allureDownloadUrl>https://maven.aliyun.com/repository/public/io/qameta/allure/allure-commandline/${allure.version}/allure-commandline-${allure.version}.zip</allureDownloadUrl>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>generate-allure-report</id>
+                                <phase>test</phase>
+                                <goals>
+                                    <goal>report</goal>
+                                </goals>
+                            </execution>
+                        </executions>
                     </plugin>
                 </plugins>
             </build>
